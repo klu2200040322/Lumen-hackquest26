@@ -10,7 +10,10 @@ const subscriptionSchema = new mongoose.Schema({
   },
   startDate: { type: Date, default: Date.now },
   endDate: { type: Date },
-  autoRenew: { type: Boolean, default: true },  // ✅ changed to true
+  autoRenew: { type: Boolean, default: true },  // autoRenew is true by default
+  dataUsed: { type: Number, default: 0 },       // optional, for ML
+  price: { type: Number, default: 0 },          // optional, for ML
+  durationDays: { type: Number, default: 30 }   // optional, for ML
 });
 
 module.exports = mongoose.model("Subscription", subscriptionSchema);
