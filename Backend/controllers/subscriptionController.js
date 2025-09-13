@@ -9,7 +9,6 @@ exports.createSubscription = async (req, res) => {
     // Check if user and plan exist
     const user = await User.findById(userId);
     const plan = await Plan.findById(planId);
-
     if (!user || !plan) {
       return res.status(404).json({ message: 'User or Plan not found' });
     }
@@ -21,11 +20,9 @@ exports.createSubscription = async (req, res) => {
       status: 'active',
       startDate: new Date(),
     });
-
     await subscription.save();
     res.status(201).json(subscription);
-  } 
-  catch (err) {
+  } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };

@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
  
 const planSchema = new mongoose.Schema({
-  name: { type: String, required: true }, // e.g., "Basic", "Pro", "Enterprise"
+  name: { type: String, required: true },
   price: { type: Number, required: true },
-  speed: { type: String }, // optional, e.g., "100Mbps"
+  speed: { type: String }, 
   autoRenewal: { type: Boolean, default: true },
   status: { type: String, enum: ["active", "inactive"], default: "active" }
 });
